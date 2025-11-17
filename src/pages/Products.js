@@ -33,20 +33,10 @@ function Products() {
    
       <div className="row mb-4">
         <div className="col-md-6 mb-2">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <input type="text" className="form-control" placeholder="Search products..." value={search} onChange={(e) => setSearch(e.target.value)}/>
         </div>
         <div className="col-md-4 mb-2">
-          <select
-            className="form-select"
-            value={filterCategory}
-            onChange={(e) => setFilterCategory(e.target.value)}
-          >
+          <select className="form-select" value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
             <option value="all">All Categories</option>
             {list.map((c) => (
               <option key={c} value={c}>
@@ -64,24 +54,16 @@ function Products() {
           filteredProducts.map((p) => (
             <div className="col-md-3 mb-4" key={p.id}>
               <div className="card h-100 shadow-sm">
-                <img
-                  src={p.image}
-                  className="card-img-top p-3"
-                  alt={p.title}
-                  style={{ height: "200px", objectFit: "contain" }}
-                />
+                <img src={p.image} className="card-img-top p-3" alt={p.title} style={{ height: "200px", objectFit: "contain" }}/>
                 <div className="card-body">
                   <h6 className="card-title">{p.title.slice(0, 20)}...</h6>
                   <p className="card-text fw-bold">₹{p.price}</p>
-                  <button
-                    className="btn btn-dark w-100 add"
-                    onClick={() => dispatch(addToCart(p))}
-                  >
+                  <button className="btn btn-dark w-100 add" onClick={() => dispatch(addToCart(p))}>
                     Add to Cart
                   </button>
                    <Link to={`/products/${p.id}`} className="btn btn-outline-dark w-100 mt-2">
-  View Details
-</Link>
+                   View Details
+                    </Link>
                 </div>
               </div>
             </div>
